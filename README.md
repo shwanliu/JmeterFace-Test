@@ -95,11 +95,16 @@
   - 等待启动时长 = Ramp-up time / 线程数；
   - 例如100个线程，ramp-up时长设置为100，即每一个线程在其前面一个线程执行后的1S后开始执行。
 
-## 3 保存identifyFace响应以及计算rank命中率
+## 3 通过Jmeter导出压力测试报告
+  - 根据需求需要得到人脸引擎的吞吐量、延时、检索的命中率则在第4点说明
+  - 将Jmeter的结果保存为.Jtl格式的文件，执行 jmeter -g identifyFace_Test.jtl -e -o resultReport ，即可生成相应的压力测试报告
+
+## 4 保存identifyFace响应以及计算rank命中率
   - 根据需求，向服务器发送人脸检索的请求，将对服务器的响应进行保存，计算人脸引擎起对于人脸检索的rank命中率；
   - IdentifyFace保存响应结果，通过对于IdentifyFace的请求参数的图片名称，用于保存相应的响应的文件名称，便于rank的命中率计算；
   - 保存 IdentifyFace 响应结果的路径设置在“保存响应结果”的选项中；
   - 使用 eval-Rank.py 用来计算rank命中率，并且画出CMC曲线。
+
 
 
 
